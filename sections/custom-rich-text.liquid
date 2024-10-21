@@ -1,0 +1,60 @@
+{{ 'custom-rich-text.css' | asset_url | stylesheet_tag }}
+
+<section class="offer-section ">
+  <div class="page-width">
+    <div class="offer-wrapper">
+      <div class="offer-text-content">
+        <h2 class="offer-product">{{ section.settings.offer_product_title }}</h2>
+        <p class="offer-text">{{ section.settings.offer_text }}</p>
+      </div>
+      <div class="offer-button">
+        <h2 class="offer-wraper">{{ section.settings.offer_wrapper }}</h2>
+        <a class="shope-now-button" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Custom Rich Text",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "offer_product_title",
+        "default":"Wallet BOGO",
+        "label": "Product Offer "
+      },
+      {
+        "type": "text",
+        "id": "offer_text",
+        "label": "Offer Text",
+        "default":"Add 2 products in cart to avail the offer"
+      },     
+      {
+        "type": "inline_richtext",
+        "id": "offer_wrapper",
+        "default":"BUY 1 GET 1 FREE",
+        "label": "Offer Label"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "t:sections.rich-text.blocks.buttons.settings.button_label_1.default",
+        "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
+        "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custome Rich Text"
+      }
+    ]
+  }
+{% endschema %}
